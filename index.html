@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Primary Meta Tags -->
+<title>Snow Storm event - Timer</title>
+<meta name="title" content="Snow Storm event - Timer">
+<meta name="description" content="Countdown for season 7 event.">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://lazylinks.fr/timer/">
+<meta property="og:title" content="Snow Storm event - Timer">
+<meta property="og:description" content="Countdown for season 7 event.">
+<meta property="og:image" content="https://lazylinks.fr/timer/img.png">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary">
+<meta property="twitter:url" content="https://lazylinks.fr/timer/">
+<meta property="twitter:title" content="Snow Storm event - Timer">
+<meta property="twitter:description" content="Countdown for season 7 event.">
+<meta property="twitter:image" content="https://lazylinks.fr/timer/img.png">
+
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-71246365-22"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-71246365-22');
+</script>
+
+
+</head>
+<body>
+    <div class="container">
+        <div id="timer"></div>
+    </div>
+    
+    
+</body>
+<script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("2019/01/19 19:00 GMT").getTime();
+    
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+    
+      // Get todays date and time
+      var now = new Date().getTime();
+    
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+    
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      function makeMeTwoDigits(n){
+    return (n < 10 ? "0" : "") + n;
+}
+    
+      // Display the result in the element with id="demo"
+      document.getElementById("timer").innerHTML =  makeMeTwoDigits(days) + " : " + makeMeTwoDigits(hours) + " : " + makeMeTwoDigits(minutes) + " : " + makeMeTwoDigits(seconds);
+    
+      // If the count down is finished, write some text 
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("timer").innerHTML = "NO SIGNAL";
+      }
+    }, 1000);
+    </script>
+</html>
